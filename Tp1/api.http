@@ -1,0 +1,122 @@
+### Get all clients
+GET http://localhost:8080/clients
+Accept: application/json
+
+###
+
+### Get client by ID
+GET http://localhost:8080/clients/1
+Accept: application/json
+
+###
+
+### Create a new client
+POST http://localhost:8080/clients
+Content-Type: application/json
+
+{
+  "name": "Alice Johnson",
+  "email": "alice@example.com",
+  "birthDate": "1995-03-20",
+  "phone": "555-1234",
+  "gender": "FEMALE",
+  "address": {
+    "street": "789 Oak Ave",
+    "city": "Chicago",
+    "state": "IL",
+    "zipCode": "60601"
+  }
+}
+
+###
+
+### Update a client
+PUT http://localhost:8080/clients/1
+Content-Type: application/json
+
+{
+  "name": "John Doe Updated",
+  "email": "john.doe.updated@example.com",
+  "birthDate": "1990-05-15",
+  "phone": "123-456-7890",
+  "gender": "MALE",
+  "address": {
+    "street": "123 Main St Updated",
+    "city": "Springfield",
+    "state": "IL",
+    "zipCode": "62704"
+  }
+}
+
+###
+
+### Partially update a client (PATCH)
+PATCH http://localhost:8080/clients/1
+Content-Type: application/json
+
+{
+  "phone": "999-999-9999"
+}
+
+###
+
+### Delete a client
+DELETE http://localhost:8080/clients/1
+
+###
+
+
+
+
+### Get all accounts
+GET http://localhost:8080/client-api/accounts
+Accept: application/json
+
+###
+
+### Get account by ID (replace {id} with actual ID, e.g., 1)
+GET http://localhost:8080/client-api/accounts/1
+Accept: application/json
+
+###
+
+    ### Create a new account
+POST http://localhost:8080/client-api/accounts
+Content-Type: application/json
+
+{
+  "login": "johndoe123",
+  "password": "password123",
+  "role": "USER",
+  "active": true,
+  "creationDate": "2024-02-03T10:00:00",
+  "client": {
+    "id": 1
+  }
+}
+###
+
+### Update an existing account (replace 1 with actual account ID)
+PUT http://localhost:8080/client-api/accounts/1
+Content-Type: application/json
+
+{
+  "login": "johndoe_updated",
+  "password": "newpassword123",
+  "role": "ADMIN",
+  "active": true,
+  "creationDate": "2024-02-03T10:00:00",
+  "client": {
+    "clientId": 2
+  }
+}
+
+###
+
+### Delete an account by ID (replace 1 with actual account ID)
+DELETE http://localhost:8080/client-api/accounts/1
+Accept: application/json
+
+###
+
+
