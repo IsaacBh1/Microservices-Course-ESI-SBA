@@ -1,3 +1,7 @@
+@baseUrl = http://localhost:8080/graphql
+@contentType = application/json
+
+
 ### Get all clients
 GET http://localhost:8080/clients
 Accept: application/json
@@ -120,3 +124,88 @@ Accept: application/json
 ###
 
 
+
+
+### Variables
+@baseUrl = http://localhost:8080/graphql
+@contentType = application/json
+
+### Create a Client
+POST {{baseUrl}}
+Content-Type: {{contentType}}
+
+{
+  "query": "mutation CreateClient($input: ClientInput!) { createClient(input: $input) { id name email phone } }",
+  "variables": {
+    "input": {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "phone": "+1234567890"
+    }
+  }
+}
+
+### Get All Clients
+POST {{baseUrl}}
+Content-Type: {{contentType}}
+
+{
+  "query": "query { allClients { id name email phone accounts { id login role } } }"
+}
+
+### Get Client By ID
+POST {{baseUrl}}
+Content-Type: {{contentType}}
+
+{
+  "query": "query GetClientById($id: ID!) { clientById(id: $id) { id name email phone accounts { id login role isActive } } }",
+  "variables": {
+    "id": "1"
+  }
+}
+
+### Get Client By Email
+POST {{baseUrl}}
+Content-Type: {{contentType}}
+
+{
+  "query": "query GetClientByEmail($email: String!) { clientByEmail(email: $email) { id name email phone } }",
+  "variables": {
+    "email": "john@example.com"
+  }
+}
+
+### Update Client
+POST {{baseUrl}}
+Content-Type: {{contentType}}
+
+{
+  "query": "mutation UpdateClient($id: ID!, $input: ClientInput!) { updateClient(id: $id, input: $input) { id name email phone } }",
+  "variables": {
+    "id": "1",
+    "input": {
+      "name": "John Updated",
+      "email": "john.updated@example.com",
+      "phone": "+9876543210"
+    }
+  }
+}
+
+### Delete Client
+POST {{baseUrl}}
+Content-Type: {{contentType}}
+
+{
+  "query": "mutation DeleteClient($id: ID!) { deleteClient(id: $id) }",
+  "variables": {
+    "id": "2"
+  }
+}
+
+### Create Multiple Clients
+POST {{baseUrl}}
+Content-Type: {{contentType}}
+
+{
+  "query": "mutation { client1: createClient(input: { name: \"Alice Smith\", email: \"alice@example.com\", phone: \"+1111111111\" }) { id name } client2: createClient(input: { name: \"Bob Johnson\", email: \"bob@example.com\", phone: \"+2222222222\" }) { id name } }"
+}

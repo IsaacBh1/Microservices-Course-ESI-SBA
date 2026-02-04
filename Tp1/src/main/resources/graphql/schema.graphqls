@@ -1,0 +1,52 @@
+type Client {
+    id: ID!
+    name: String!
+    email: String!
+    phone: String
+    accounts: [Account]
+}
+
+type Account {
+    id: ID!
+    login: String!
+    password: String
+    role: String
+    isActive: Boolean
+    creationDate: String
+    client_c: Client!
+}
+
+input ClientInput {
+    name: String!
+    email: String!
+    phone: String
+}
+
+input AccountInput {
+    login: String!
+    password: String!
+    role: String
+    isActive: Boolean
+    clientId: ID!
+}
+
+type Query {
+    allClients: [Client]
+    clientById(id: ID!): Client
+    clientByEmail(email: String!): Client
+    
+    allAccounts: [Account]
+    accountById(id: ID!): Account
+    accountByLogin(login: String!): Account
+    accountsByClientId(clientId: ID!): [Account]
+}
+
+type Mutation {
+    createClient(input: ClientInput!): Client
+    updateClient(id: ID!, input: ClientInput!): Client
+    deleteClient(id: ID!): Boolean
+
+    createAccount(input: AccountInput!): Account
+    updateAccount(id: ID!, input: AccountInput!): Account
+    deleteAccount(id: ID!): Boolean
+}

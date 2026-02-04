@@ -20,20 +20,20 @@ public class Client {
     private Long id;
     
     @Column(nullable = false)
-    private String name;
+    private String name = "";
     
     @Column(unique = true, nullable = false)
-    private String email;
-    
-    private LocalDate birthDate;
-    private String phone;
-    
+    private String email = "";
+
+    private LocalDate birthDate = LocalDate.now();
+    private String phone = "";
+
     @Enumerated(EnumType.STRING)
-    private Gender gender;
-    
-    @Embedded  
-    private Address address;
-    
+    private Gender gender = Gender.MALE;
+
+    @Embedded
+    private Address address = new Address();
+
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Account> accounts = new ArrayList<>(); 
@@ -42,7 +42,17 @@ public class Client {
         accounts.add(account);
         account.setClient(this);
     }
-    
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
     public void removeAccount(Account account) {
         accounts.remove(account);
         account.setClient(null);

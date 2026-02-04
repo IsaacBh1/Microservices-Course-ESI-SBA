@@ -43,7 +43,7 @@ Before running this project, make sure you have the following installed:
     ├── api.http
     ├── pom.xml
     └── README.md
-    
+
 ```
 
 
@@ -54,6 +54,7 @@ mvn clean install
 ```
 
 This will:
+
     - Download all dependencies
     - Compile the code
     - Run tests
