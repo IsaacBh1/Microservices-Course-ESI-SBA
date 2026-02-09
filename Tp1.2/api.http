@@ -1,0 +1,508 @@
+### ============================================
+### GraphQL API Tests - Cloud Platform
+### Base URL: http://localhost:8081/graphql
+### ============================================
+
+### 1. Query - Get All Users
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "query { getAllUsers { id nom email machinesVirtualles { id configuration { cpu ram disk } } } }"
+}
+
+### 2. Query - Get User by ID
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "query { getUser(id: 1) { id nom email machinesVirtualles { id configuration { cpu ram disk } serverPrimary { nom datacenter } serverBackup { nom datacenter } } } }"
+}
+
+### 3. Query - Get All Servers
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "query { getAllServers { id nom datacenter configuration { cpu ram disk } } }"
+}
+
+### 4. Query - Get VMs by Server ID
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "query { getVmsByServer(idServer: 1) { id configuration { cpu ram disk } user { nom email } serverPrimary { nom } serverBackup { nom } } }"
+}
+
+### 5. Mutation - Create VM
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation { createVm(input: { idUser: 1, idServer: 2, idServerBackup: 1, configuration: { cpu: 4, ram: 16, disk: 100 } }) { id configuration { cpu ram disk } user { nom } serverPrimary { nom } serverBackup { nom } } }"
+}
+
+### 6. Mutation - Update User
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation { updateUser(id: 1, input: { nom: \"Ahmed Updated\", email: \"ahmed.updated@esi-sba.dz\" }) { id nom email } }"
+}
+
+### 7. Mutation - Update User (partial - only name)
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation { updateUser(id: 1, input: { nom: \"Nouveau Nom\" }) { id nom email } }"
+}
+
+### 8. Mutation - Update User (partial - only email)
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation { updateUser(id: 2, input: { email: \"nouveau.email@esi-sba.dz\" }) { id nom email } }"
+}
+
+### 9. Mutation - Delete VM from Server
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation { deleteVmFromServer(idServer: 1, idVm: 1) }"
+}
+
+### ============================================
+### GraphQL Queries with Variables
+### ============================================
+
+### 10. Query - Get User by ID (with variables)
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "query GetUser($userId: ID!) { getUser(id: $userId) { id nom email machinesVirtualles { id configuration { cpu ram disk } } } }",
+  "variables": {
+    "userId": "1"
+  }
+}
+
+### 11. Query - Get VMs by Server (with variables)
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "query GetServerVMs($serverId: ID!) { getVmsByServer(idServer: $serverId) { id configuration { cpu ram disk } user { nom email } serverPrimary { nom datacenter } serverBackup { nom datacenter } } }",
+  "variables": {
+    "serverId": "1"
+  }
+}
+
+### 12. Mutation - Create VM (with variables)
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation CreateVM($input: CreateVmInput!) { createVm(input: $input) { id configuration { cpu ram disk } user { nom email } serverPrimary { nom datacenter } serverBackup { nom datacenter } } }",
+  "variables": {
+    "input": {
+      "idUser": "1",
+      "idServer": "2",
+      "idServerBackup": "3",
+      "configuration": {
+        "cpu": 8,
+        "ram": 32,
+        "disk": 500
+      }
+    }
+  }
+}
+
+### 13. Mutation - Update User (with variables)
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation UpdateUser($id: ID!, $input: UserInput!) { updateUser(id: $id, input: $input) { id nom email machinesVirtualles { id } } }",
+  "variables": {
+    "id": "2",
+    "input": {
+      "nom": "Fatima Modifiée",
+      "email": "fatima.modified@gmail.com"
+    }
+  }
+}
+
+### 14. Mutation - Delete VM (with variables)
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation DeleteVM($serverId: ID!, $vmId: ID!) { deleteVmFromServer(idServer: $serverId, idVm: $vmId) }",
+  "variables": {
+    "serverId": "1",
+    "vmId": "1"
+  }
+}
+
+### ============================================
+### GraphQL Queries - Formatted (Multi-line)
+### ============================================
+
+### 15. Query - Get All Users (Formatted)
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "
+    query {
+      getAllUsers {
+        id
+        nom
+        email
+        machinesVirtualles {
+          id
+          configuration {
+            cpu
+            ram
+            disk
+          }
+          serverPrimary {
+            nom
+            datacenter
+          }
+          serverBackup {
+            nom
+            datacenter
+          }
+        }
+      }
+    }
+  "
+}
+
+### 16. Query - Get Complete Server Info
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "
+    query {
+      getAllServers {
+        id
+        nom
+        datacenter
+        configuration {
+          cpu
+          ram
+          disk
+        }
+      }
+    }
+  "
+}
+
+### 17. Query - Get User with Full VM Details
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "
+    query GetUserDetails($id: ID!) {
+      getUser(id: $id) {
+        id
+        nom
+        email
+        machinesVirtualles {
+          id
+          configuration {
+            cpu
+            ram
+            disk
+          }
+          serverPrimary {
+            id
+            nom
+            datacenter
+            configuration {
+              cpu
+              ram
+              disk
+            }
+          }
+          serverBackup {
+            id
+            nom
+            datacenter
+            configuration {
+              cpu
+              ram
+              disk
+            }
+          }
+        }
+      }
+    }
+  ",
+  "variables": {
+    "id": "1"
+  }
+}
+
+### 18. Mutation - Create VM (Formatted)
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "
+    mutation CreateNewVM($input: CreateVmInput!) {
+      createVm(input: $input) {
+        id
+        configuration {
+          cpu
+          ram
+          disk
+        }
+        user {
+          id
+          nom
+          email
+        }
+        serverPrimary {
+          id
+          nom
+          datacenter
+        }
+        serverBackup {
+          id
+          nom
+          datacenter
+        }
+      }
+    }
+  ",
+  "variables": {
+    "input": {
+      "idUser": "1",
+      "idServer": "1",
+      "idServerBackup": "2",
+      "configuration": {
+        "cpu": 2,
+        "ram": 8,
+        "disk": 50
+      }
+    }
+  }
+}
+
+### 19. Query - Get VMs by Server with Full Details
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "
+    query GetServerVMsDetailed($serverId: ID!) {
+      getVmsByServer(idServer: $serverId) {
+        id
+        configuration {
+          cpu
+          ram
+          disk
+        }
+        user {
+          id
+          nom
+          email
+        }
+        serverPrimary {
+          id
+          nom
+          datacenter
+          configuration {
+            cpu
+            ram
+            disk
+          }
+        }
+        serverBackup {
+          id
+          nom
+          datacenter
+          configuration {
+            cpu
+            ram
+            disk
+          }
+        }
+      }
+    }
+  ",
+  "variables": {
+    "serverId": "1"
+  }
+}
+
+### ============================================
+### GraphQL Introspection Queries
+### ============================================
+
+### 20. Get Schema Types
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "
+    query {
+      __schema {
+        types {
+          name
+          kind
+        }
+      }
+    }
+  "
+}
+
+### 21. Get Query Type Fields
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "
+    query {
+      __schema {
+        queryType {
+          name
+          fields {
+            name
+            type {
+              name
+              kind
+            }
+          }
+        }
+      }
+    }
+  "
+}
+
+### 22. Get Mutation Type Fields
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "
+    query {
+      __schema {
+        mutationType {
+          name
+          fields {
+            name
+            type {
+              name
+              kind
+            }
+          }
+        }
+      }
+    }
+  "
+}
+
+### 23. Get Type Details - User
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "
+    query {
+      __type(name: \"User\") {
+        name
+        fields {
+          name
+          type {
+            name
+            kind
+          }
+        }
+      }
+    }
+  "
+}
+
+### 24. Get Type Details - VirtualMachine
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "
+    query {
+      __type(name: \"VirtualMachine\") {
+        name
+        fields {
+          name
+          type {
+            name
+            kind
+          }
+        }
+      }
+    }
+  "
+}
+
+### ============================================
+### Test Scenarios - Complete Workflows
+### ============================================
+
+### 25. Workflow - Create User, Create VM, Check Results
+# Step 1: Get all users first
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "query { getAllUsers { id nom email } }"
+}
+
+### 26. Step 2: Get all servers
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "query { getAllServers { id nom datacenter } }"
+}
+
+### 27. Step 3: Create a new VM
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation { createVm(input: { idUser: 1, idServer: 1, idServerBackup: 2, configuration: { cpu: 4, ram: 16, disk: 200 } }) { id configuration { cpu ram disk } user { nom } serverPrimary { nom } serverBackup { nom } } }"
+}
+
+### 28. Step 4: Verify VM was created by checking user
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "query { getUser(id: 1) { id nom email machinesVirtualles { id configuration { cpu ram disk } } } }"
+}
+
+### 29. Step 5: Check VMs on server
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "query { getVmsByServer(idServer: 1) { id configuration { cpu ram disk } user { nom } } }"
+}
+
+### 30. Step 6: Update user info
+POST http://localhost:8081/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation { updateUser(id: 1, input: { nom: \"Updated Name\" }) { id nom email } }"
+}

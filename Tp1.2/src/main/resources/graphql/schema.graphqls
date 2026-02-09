@@ -1,0 +1,58 @@
+type Query {
+    getVmsByServer(idServer: ID!): [VirtualMachine]
+    getUser(id: ID!): User
+    getAllUsers: [User]
+    getAllServers: [Server]
+}
+
+type Mutation {
+    createVm(input: CreateVmInput!): VirtualMachine
+    updateUser(id: ID!, input: UserInput!): User
+    deleteVmFromServer(idServer: ID!, idVm: ID!): Boolean
+}
+
+type User {
+    id: ID!
+    nom: String!
+    email: String!
+    machinesVirtualles: [VirtualMachine]
+}
+
+type VirtualMachine {
+    id: ID!
+    configuration: Configuration
+    user: User
+    serverPrimary: Server
+    serverBackup: Server
+}
+
+type Server {
+    id: ID!
+    nom: String!
+    datacenter: String!
+    configuration: Configuration
+}
+
+type Configuration {
+    cpu: Int
+    ram: Int
+    disk: Int
+}
+
+input CreateVmInput {
+    idUser: ID!
+    idServer: ID!
+    idServerBackup: ID!
+    configuration: ConfigurationInput!
+}
+
+input ConfigurationInput {
+    cpu: Int!
+    ram: Int!
+    disk: Int!
+}
+
+input UserInput {
+    nom: String
+    email: String
+}
