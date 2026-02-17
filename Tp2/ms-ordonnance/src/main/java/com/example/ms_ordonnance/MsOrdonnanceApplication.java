@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import com.example.ms_ordonnance.entities.Medicament;
 import com.example.ms_ordonnance.entities.Ordonnance;
@@ -18,12 +17,10 @@ public class MsOrdonnanceApplication implements CommandLineRunner {
 
 	final OrdonnanceRepository ordonnanceRepository;
 	final MedicamentRepository medicamentRepository;
-	final RepositoryRestConfiguration repositoryRestConfiguration;
 
-	public MsOrdonnanceApplication(OrdonnanceRepository ordonnanceRepository, MedicamentRepository medicamentRepository, RepositoryRestConfiguration repositoryRestConfiguration) {
+	public MsOrdonnanceApplication(OrdonnanceRepository ordonnanceRepository, MedicamentRepository medicamentRepository) {
 		this.ordonnanceRepository = ordonnanceRepository;
 		this.medicamentRepository = medicamentRepository;
-		this.repositoryRestConfiguration = repositoryRestConfiguration;
 	}
 
 	public static void main(String[] args) {
@@ -47,7 +44,5 @@ public class MsOrdonnanceApplication implements CommandLineRunner {
 		medicamentRepository.save(m3);
 		medicamentRepository.save(m4);
 
-		// Exposer les IDs
-		repositoryRestConfiguration.exposeIdsFor(Ordonnance.class, Medicament.class);
 	}
 }

@@ -1,4 +1,4 @@
-package com.example.ms_patient.DTOs;
+package com.example.ms_ordonnance.DTOs;
 
 import lombok.Data;
 import java.util.List;

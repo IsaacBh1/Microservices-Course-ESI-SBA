@@ -35,11 +35,6 @@ Accept: application/json
 GET {{baseUrl}}/ordonnances/patient/2
 Accept: application/json
 
-###
-
-### ============================================
-### Q3 - INVOCATIONS SYNCHRONES (Tests Importants!)
-### ============================================
 
 ### 6. Q3 - Get ordonnance WITH patient name (Feign call to MS-Patient)
 GET {{baseUrl}}/ordonnances/1/with-patient

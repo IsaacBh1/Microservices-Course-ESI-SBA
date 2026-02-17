@@ -1,0 +1,14 @@
+### 1 - Test GraphQL directly on ordonnance service
+POST http://localhost:8082/graphql
+Content-Type: application/json
+
+{
+  "query": "query GetOrdonnancesByPatientId($patientId: ID!) { getOrdonnancesByPatientId(patientId: $patientId) { id date patientId medicaments { id nomMedicament duree dosage cout } } }",
+  "variables": { "patientId": 2 }
+}
+
+###
+
+### 2 - Test REST endpoint on patient service (calls GraphQL internally)
+GET http://localhost:8080/api/patients/1/ordonnances
+Content-Type: application/json

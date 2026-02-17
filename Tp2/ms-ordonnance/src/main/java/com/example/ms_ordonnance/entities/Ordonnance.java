@@ -19,7 +19,7 @@ public class Ordonnance {
     
     private LocalDate date;
     
-    private Long patientId; 
+    private Long patientId;
     
     @OneToMany(mappedBy = "ordonnance", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Medicament> medicaments;

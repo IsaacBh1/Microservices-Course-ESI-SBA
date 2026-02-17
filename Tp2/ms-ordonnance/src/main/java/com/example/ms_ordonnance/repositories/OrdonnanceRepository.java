@@ -2,11 +2,11 @@ package com.example.ms_ordonnance.repositories;
 
 import com.example.ms_ordonnance.entities.Ordonnance;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@RepositoryRestResource
+@Repository
 public interface OrdonnanceRepository extends JpaRepository<Ordonnance, Long> {
     List<Ordonnance> findByPatientId(Long patientId);
 }

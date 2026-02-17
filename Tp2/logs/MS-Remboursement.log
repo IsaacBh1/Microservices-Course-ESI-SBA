@@ -35,23 +35,22 @@
 
  :: Spring Boot ::                (v4.0.2)
 
-2026-02-17T00:39:47.173+01:00  INFO 132293 --- [ms-remboursement] [           main] c.e.m.MsRemboursementApplication         : Starting MsRemboursementApplication using Java 17.0.16 with PID 132293 (/home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-remboursement/target/classes started by isaac in /home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-remboursement)
-2026-02-17T00:39:47.179+01:00  INFO 132293 --- [ms-remboursement] [           main] c.e.m.MsRemboursementApplication         : No active profile set, falling back to 1 default profile: "default"
-2026-02-17T00:39:49.346+01:00  INFO 132293 --- [ms-remboursement] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-17T00:39:49.587+01:00  INFO 132293 --- [ms-remboursement] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 226 ms. Found 2 JPA repository interfaces.
-2026-02-17T00:39:49.851+01:00  INFO 132293 --- [ms-remboursement] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ac3a6c5e-978f-35bb-8fe8-b062b3f9a81d
-2026-02-17T00:39:50.539+01:00  INFO 132293 --- [ms-remboursement] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
-2026-02-17T00:39:50.558+01:00  INFO 132293 --- [ms-remboursement] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-02-17T00:39:50.559+01:00  INFO 132293 --- [ms-remboursement] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-02-17T00:39:50.644+01:00  INFO 132293 --- [ms-remboursement] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3395 ms
-2026-02-17T00:39:50.865+01:00  INFO 132293 --- [ms-remboursement] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-02-17T00:39:50.923+01:00  INFO 132293 --- [ms-remboursement] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
-2026-02-17T00:39:51.447+01:00  INFO 132293 --- [ms-remboursement] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-17T00:39:51.482+01:00  INFO 132293 --- [ms-remboursement] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-02-17T00:39:51.707+01:00  INFO 132293 --- [ms-remboursement] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:remboursementdb user=SA
-2026-02-17T00:39:51.709+01:00  INFO 132293 --- [ms-remboursement] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-02-17T00:39:51.735+01:00  WARN 132293 --- [ms-remboursement] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-02-17T00:39:51.770+01:00  INFO 132293 --- [ms-remboursement] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-02-17T11:33:10.381+01:00  INFO 63056 --- [ms-remboursement] [           main] c.e.m.MsRemboursementApplication         : Starting MsRemboursementApplication using Java 17.0.16 with PID 63056 (/home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-remboursement/target/classes started by isaac in /home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-remboursement)
+2026-02-17T11:33:10.401+01:00  INFO 63056 --- [ms-remboursement] [           main] c.e.m.MsRemboursementApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-02-17T11:33:12.448+01:00  INFO 63056 --- [ms-remboursement] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-17T11:33:12.965+01:00  INFO 63056 --- [ms-remboursement] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 490 ms. Found 2 JPA repository interfaces.
+2026-02-17T11:33:13.696+01:00  INFO 63056 --- [ms-remboursement] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
+2026-02-17T11:33:13.716+01:00  INFO 63056 --- [ms-remboursement] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-17T11:33:13.716+01:00  INFO 63056 --- [ms-remboursement] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-17T11:33:13.798+01:00  INFO 63056 --- [ms-remboursement] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3158 ms
+2026-02-17T11:33:14.043+01:00  INFO 63056 --- [ms-remboursement] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-17T11:33:14.111+01:00  INFO 63056 --- [ms-remboursement] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-17T11:33:14.864+01:00  INFO 63056 --- [ms-remboursement] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-17T11:33:14.937+01:00  INFO 63056 --- [ms-remboursement] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-17T11:33:15.364+01:00  INFO 63056 --- [ms-remboursement] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:remboursementdb user=SA
+2026-02-17T11:33:15.368+01:00  INFO 63056 --- [ms-remboursement] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-17T11:33:15.416+01:00  WARN 63056 --- [ms-remboursement] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-17T11:33:15.499+01:00  INFO 63056 --- [ms-remboursement] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:h2:mem:remboursementdb]
 	Database driver: H2 JDBC Driver
 	Database dialect: H2Dialect
@@ -63,32 +62,26 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-02-17T00:39:52.767+01:00  INFO 132293 --- [ms-remboursement] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-17T11:33:16.976+01:00  INFO 63056 --- [ms-remboursement] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: drop table if exists patient_assure cascade 
 Hibernate: drop table if exists remboursement cascade 
 Hibernate: create table patient_assure (id bigint generated by default as identity, patient_id bigint, nom varchar(255), numero_securite_social varchar(255), primary key (id))
 Hibernate: create table remboursement (date date, montant float(53), id bigint generated by default as identity, ordonnance_id bigint, patient_assure_id bigint, primary key (id))
 Hibernate: alter table if exists remboursement add constraint FKao4clpqyjvkc1ioscidd1b11y foreign key (patient_assure_id) references patient_assure
-2026-02-17T00:39:52.843+01:00  INFO 132293 --- [ms-remboursement] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-17T00:39:52.974+01:00  INFO 132293 --- [ms-remboursement] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-02-17T00:39:53.304+01:00  WARN 132293 --- [ms-remboursement] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-17T00:39:53.882+01:00  INFO 132293 --- [ms-remboursement] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:remboursementdb'
-2026-02-17T00:39:54.936+01:00  INFO 132293 --- [ms-remboursement] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-02-17T00:39:55.938+01:00  INFO 132293 --- [ms-remboursement] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/'
-2026-02-17T00:39:55.956+01:00  INFO 132293 --- [ms-remboursement] [           main] c.e.m.MsRemboursementApplication         : Started MsRemboursementApplication in 9.65 seconds (process running for 10.817)
+2026-02-17T11:33:17.038+01:00  INFO 63056 --- [ms-remboursement] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-17T11:33:17.166+01:00  INFO 63056 --- [ms-remboursement] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-17T11:33:17.584+01:00  WARN 63056 --- [ms-remboursement] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-17T11:33:18.347+01:00  INFO 63056 --- [ms-remboursement] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:remboursementdb'
+2026-02-17T11:33:18.653+01:00  INFO 63056 --- [ms-remboursement] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/'
+2026-02-17T11:33:18.670+01:00  INFO 63056 --- [ms-remboursement] [           main] c.e.m.MsRemboursementApplication         : Started MsRemboursementApplication in 10.198 seconds (process running for 12.541)
 Hibernate: insert into patient_assure (nom,numero_securite_social,patient_id,id) values (?,?,?,default)
 Hibernate: insert into patient_assure (nom,numero_securite_social,patient_id,id) values (?,?,?,default)
 Hibernate: insert into remboursement (date,montant,ordonnance_id,patient_assure_id,id) values (?,?,?,?,default)
 Hibernate: insert into remboursement (date,montant,ordonnance_id,patient_assure_id,id) values (?,?,?,?,default)
-2026-02-17T00:41:37.045+01:00  INFO 132293 --- [ms-remboursement] [nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-17T00:41:37.046+01:00  INFO 132293 --- [ms-remboursement] [nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-02-17T00:41:37.051+01:00  INFO 132293 --- [ms-remboursement] [nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-Hibernate: select r1_0.id,r1_0.date,r1_0.montant,r1_0.ordonnance_id,r1_0.patient_assure_id from remboursement r1_0 where r1_0.ordonnance_id=?
-Hibernate: select pa1_0.id,pa1_0.nom,pa1_0.numero_securite_social,pa1_0.patient_id from patient_assure pa1_0 where pa1_0.id=?
-2026-02-17T00:43:13.452+01:00  INFO 132293 --- [ms-remboursement] [ionShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
-2026-02-17T00:43:13.458+01:00  INFO 132293 --- [ms-remboursement] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
-2026-02-17T00:43:13.491+01:00  INFO 132293 --- [ms-remboursement] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-17T11:33:33.151+01:00  INFO 63056 --- [ms-remboursement] [ionShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-17T11:33:33.163+01:00  INFO 63056 --- [ms-remboursement] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-17T11:33:33.206+01:00  INFO 63056 --- [ms-remboursement] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 Hibernate: drop table if exists patient_assure cascade 
 Hibernate: drop table if exists remboursement cascade 
-2026-02-17T00:43:13.497+01:00  INFO 132293 --- [ms-remboursement] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-02-17T00:43:13.500+01:00  INFO 132293 --- [ms-remboursement] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-02-17T11:33:33.213+01:00  INFO 63056 --- [ms-remboursement] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-17T11:33:33.216+01:00  INFO 63056 --- [ms-remboursement] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

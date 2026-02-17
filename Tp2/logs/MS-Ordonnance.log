@@ -9,16 +9,18 @@
 [INFO] 
 [INFO] --- resources:3.3.1:resources (default-resources) @ ms-ordonnance ---
 [INFO] Copying 1 resource from src/main/resources to target/classes
-[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
 [INFO] 
 [INFO] --- compiler:3.14.1:compile (default-compile) @ ms-ordonnance ---
-[INFO] Nothing to compile - all classes are up to date.
+[INFO] Recompiling the module because of added or removed source files.
+[INFO] Compiling 17 source files with javac [debug parameters release 17] to target/classes
 [INFO] 
 [INFO] --- resources:3.3.1:testResources (default-testResources) @ ms-ordonnance ---
 [INFO] skip non existing resourceDirectory /home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-ordonnance/src/test/resources
 [INFO] 
 [INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ ms-ordonnance ---
-[INFO] Nothing to compile - all classes are up to date.
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 17] to target/test-classes
 [INFO] 
 [INFO] <<< spring-boot:4.0.2:run (default-cli) < test-compile @ ms-ordonnance <<<
 [INFO] 
@@ -35,23 +37,22 @@
 
  :: Spring Boot ::                (v4.0.2)
 
-2026-02-17T00:39:38.706+01:00  INFO 132185 --- [ms-ordonnance] [           main] c.e.m.MsOrdonnanceApplication            : Starting MsOrdonnanceApplication using Java 17.0.16 with PID 132185 (/home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-ordonnance/target/classes started by isaac in /home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-ordonnance)
-2026-02-17T00:39:38.716+01:00  INFO 132185 --- [ms-ordonnance] [           main] c.e.m.MsOrdonnanceApplication            : No active profile set, falling back to 1 default profile: "default"
-2026-02-17T00:39:41.654+01:00  INFO 132185 --- [ms-ordonnance] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-17T00:39:42.323+01:00  INFO 132185 --- [ms-ordonnance] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 616 ms. Found 2 JPA repository interfaces.
-2026-02-17T00:39:42.993+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e881a685-4640-386d-b16f-8ce4f4989599
-2026-02-17T00:39:43.962+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
-2026-02-17T00:39:43.993+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-02-17T00:39:43.994+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-02-17T00:39:44.111+01:00  INFO 132185 --- [ms-ordonnance] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 5232 ms
-2026-02-17T00:39:44.657+01:00  INFO 132185 --- [ms-ordonnance] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-02-17T00:39:44.869+01:00  INFO 132185 --- [ms-ordonnance] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
-2026-02-17T00:39:46.061+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-17T00:39:46.101+01:00  INFO 132185 --- [ms-ordonnance] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-02-17T00:39:46.387+01:00  INFO 132185 --- [ms-ordonnance] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:ordonnancedb user=SA
-2026-02-17T00:39:46.390+01:00  INFO 132185 --- [ms-ordonnance] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-02-17T00:39:46.432+01:00  WARN 132185 --- [ms-ordonnance] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-02-17T00:39:46.486+01:00  INFO 132185 --- [ms-ordonnance] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-02-17T11:33:12.656+01:00  INFO 63099 --- [ms-ordonnance] [           main] c.e.m.MsOrdonnanceApplication            : Starting MsOrdonnanceApplication using Java 17.0.16 with PID 63099 (/home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-ordonnance/target/classes started by isaac in /home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-ordonnance)
+2026-02-17T11:33:12.679+01:00  INFO 63099 --- [ms-ordonnance] [           main] c.e.m.MsOrdonnanceApplication            : No active profile set, falling back to 1 default profile: "default"
+2026-02-17T11:33:13.882+01:00  INFO 63099 --- [ms-ordonnance] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-17T11:33:14.147+01:00  INFO 63099 --- [ms-ordonnance] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 250 ms. Found 2 JPA repository interfaces.
+2026-02-17T11:33:14.915+01:00  INFO 63099 --- [ms-ordonnance] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-02-17T11:33:14.946+01:00  INFO 63099 --- [ms-ordonnance] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-17T11:33:14.948+01:00  INFO 63099 --- [ms-ordonnance] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-17T11:33:15.104+01:00  INFO 63099 --- [ms-ordonnance] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2246 ms
+2026-02-17T11:33:15.465+01:00  INFO 63099 --- [ms-ordonnance] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-17T11:33:15.656+01:00  INFO 63099 --- [ms-ordonnance] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-17T11:33:16.557+01:00  INFO 63099 --- [ms-ordonnance] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-17T11:33:16.611+01:00  INFO 63099 --- [ms-ordonnance] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-17T11:33:16.880+01:00  INFO 63099 --- [ms-ordonnance] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:ordonnancedb user=SA
+2026-02-17T11:33:16.882+01:00  INFO 63099 --- [ms-ordonnance] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-17T11:33:16.908+01:00  WARN 63099 --- [ms-ordonnance] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-17T11:33:16.936+01:00  INFO 63099 --- [ms-ordonnance] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:h2:mem:ordonnancedb]
 	Database driver: H2 JDBC Driver
 	Database dialect: H2Dialect
@@ -63,41 +64,47 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-02-17T00:39:48.567+01:00  INFO 132185 --- [ms-ordonnance] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-17T11:33:18.485+01:00  INFO 63099 --- [ms-ordonnance] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: drop table if exists medicament cascade 
 Hibernate: drop table if exists ordonnance cascade 
 Hibernate: create table medicament (cout float(53), duree integer, id bigint generated by default as identity, ordonnance_id bigint, dosage varchar(255), nom_medicament varchar(255), primary key (id))
 Hibernate: create table ordonnance (date date, id bigint generated by default as identity, patient_id bigint, primary key (id))
 Hibernate: alter table if exists medicament add constraint FKhgswb7jkt5pg8vyphpcgpyj7h foreign key (ordonnance_id) references ordonnance
-2026-02-17T00:39:48.777+01:00  INFO 132185 --- [ms-ordonnance] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-17T00:39:49.105+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-02-17T00:39:49.704+01:00  WARN 132185 --- [ms-ordonnance] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-17T00:39:50.673+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:ordonnancedb'
-2026-02-17T00:39:51.751+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-02-17T00:39:52.766+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-02-17T00:39:52.869+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
-2026-02-17T00:39:53.872+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-02-17T00:39:54.874+01:00  INFO 132185 --- [ms-ordonnance] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-02-17T00:39:54.897+01:00  INFO 132185 --- [ms-ordonnance] [           main] c.e.m.MsOrdonnanceApplication            : Started MsOrdonnanceApplication in 17.197 seconds (process running for 18.518)
+2026-02-17T11:33:18.664+01:00  INFO 63099 --- [ms-ordonnance] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-17T11:33:18.890+01:00  INFO 63099 --- [ms-ordonnance] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-17T11:33:19.402+01:00  WARN 63099 --- [ms-ordonnance] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-17T11:33:19.750+01:00  INFO 63099 --- [ms-ordonnance] [           main] efaultSchemaResourceGraphQlSourceBuilder : Loaded 1 resource(s) in the GraphQL schema.
+2026-02-17T11:33:19.980+01:00  INFO 63099 --- [ms-ordonnance] [           main] o.s.b.g.a.GraphQlAutoConfiguration       : GraphQL schema inspection:
+	Unmapped fields: {}
+	Unmapped registrations: {}
+	Unmapped arguments: {}
+	Field nullness errors: {}
+	Argument nullness errors: {}
+	Skipped types: []
+2026-02-17T11:33:20.028+01:00  INFO 63099 --- [ms-ordonnance] [           main] s.b.g.a.s.GraphQlWebMvcAutoConfiguration : GraphQL endpoint HTTP POST /graphql
+2026-02-17T11:33:20.438+01:00  INFO 63099 --- [ms-ordonnance] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-02-17T11:33:20.452+01:00  INFO 63099 --- [ms-ordonnance] [           main] c.e.m.MsOrdonnanceApplication            : Started MsOrdonnanceApplication in 9.335 seconds (process running for 10.909)
 Hibernate: insert into ordonnance (date,patient_id,id) values (?,?,default)
 Hibernate: insert into ordonnance (date,patient_id,id) values (?,?,default)
 Hibernate: insert into medicament (cout,dosage,duree,nom_medicament,ordonnance_id,id) values (?,?,?,?,?,default)
 Hibernate: insert into medicament (cout,dosage,duree,nom_medicament,ordonnance_id,id) values (?,?,?,?,?,default)
 Hibernate: insert into medicament (cout,dosage,duree,nom_medicament,ordonnance_id,id) values (?,?,?,?,?,default)
 Hibernate: insert into medicament (cout,dosage,duree,nom_medicament,ordonnance_id,id) values (?,?,?,?,?,default)
-2026-02-17T00:41:12.150+01:00  INFO 132185 --- [ms-ordonnance] [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-17T00:41:12.151+01:00  INFO 132185 --- [ms-ordonnance] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-02-17T00:41:12.154+01:00  INFO 132185 --- [ms-ordonnance] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-Hibernate: select o1_0.id,o1_0.date,o1_0.patient_id from ordonnance o1_0 where o1_0.id=?
+2026-02-17T11:33:20.888+01:00  INFO 63099 --- [ms-ordonnance] [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-17T11:33:20.888+01:00  INFO 63099 --- [ms-ordonnance] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-17T11:33:20.890+01:00  INFO 63099 --- [ms-ordonnance] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+Hibernate: select o1_0.id,o1_0.date,o1_0.patient_id from ordonnance o1_0 where o1_0.patient_id=?
+Hibernate: select o1_0.id,o1_0.date,o1_0.patient_id from ordonnance o1_0 where o1_0.patient_id=?
+Hibernate: select m1_0.ordonnance_id,m1_0.id,m1_0.cout,m1_0.dosage,m1_0.duree,m1_0.nom_medicament from medicament m1_0 where m1_0.ordonnance_id=?
 Hibernate: select m1_0.ordonnance_id,m1_0.id,m1_0.cout,m1_0.dosage,m1_0.duree,m1_0.nom_medicament from medicament m1_0 where m1_0.ordonnance_id=?
 Hibernate: select o1_0.id,o1_0.date,o1_0.patient_id from ordonnance o1_0 where o1_0.patient_id=?
 Hibernate: select m1_0.ordonnance_id,m1_0.id,m1_0.cout,m1_0.dosage,m1_0.duree,m1_0.nom_medicament from medicament m1_0 where m1_0.ordonnance_id=?
-Hibernate: select o1_0.id,o1_0.date,o1_0.patient_id from ordonnance o1_0 where o1_0.id=?
+Hibernate: select o1_0.id,o1_0.date,o1_0.patient_id from ordonnance o1_0 where o1_0.patient_id=?
 Hibernate: select m1_0.ordonnance_id,m1_0.id,m1_0.cout,m1_0.dosage,m1_0.duree,m1_0.nom_medicament from medicament m1_0 where m1_0.ordonnance_id=?
-2026-02-17T00:43:11.378+01:00  INFO 132185 --- [ms-ordonnance] [ionShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
-2026-02-17T00:43:11.382+01:00  INFO 132185 --- [ms-ordonnance] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
-2026-02-17T00:43:11.415+01:00  INFO 132185 --- [ms-ordonnance] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-17T11:33:31.022+01:00  INFO 63099 --- [ms-ordonnance] [ionShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-17T11:33:31.028+01:00  INFO 63099 --- [ms-ordonnance] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-17T11:33:31.048+01:00  INFO 63099 --- [ms-ordonnance] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 Hibernate: drop table if exists medicament cascade 
 Hibernate: drop table if exists ordonnance cascade 
-2026-02-17T00:43:11.428+01:00  INFO 132185 --- [ms-ordonnance] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-02-17T00:43:11.431+01:00  INFO 132185 --- [ms-ordonnance] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-02-17T11:33:31.056+01:00  INFO 63099 --- [ms-ordonnance] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-17T11:33:31.058+01:00  INFO 63099 --- [ms-ordonnance] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -85,6 +85,13 @@ Accept: application/json
 
 ###
 
+
+GET {{baseUrl}}/patients/1/with-ordonnances
+Accept: application/json
+
+
+###
+
 ### Get all antecedents
 GET {{baseUrl}}/antecedentMedicals
 Accept: application/json
@@ -112,3 +119,15 @@ Content-Type: application/json
   "dateDiagnostic": "2023-04-15",
   "patient": "http://localhost:8081/patients/1"
 }
+
+
+
+
+###
+
+### Test with patient id 2
+GET http://localhost:8080/api/patients/1/with-ordonnances
+Content-Type: application/json
+
+###
+
