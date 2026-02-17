@@ -2,6 +2,7 @@ package com.example.Tp12.Controllers;
 
 import com.example.Tp12.DTOs.CreateVmRequest;
 import com.example.Tp12.DTOs.UserDTO;
+import com.example.Tp12.DTOs.VirtualMachineDTO;
 import com.example.Tp12.Entities.VirtualMachine;
 import com.example.Tp12.Entities.Server;
 import com.example.Tp12.Entities.User;
@@ -61,5 +62,10 @@ public class CloudGraphQLController {
     public Boolean deleteVmFromServer(@Argument Long idServer, @Argument Long idVm) {
         vmService.deleteVmFromServer(idServer, idVm);
         return true;
+    }
+
+    @QueryMapping
+    public VirtualMachine updateVm(@Argument VirtualMachineDTO vm) {
+        return vmService.updateVm(vm.getId(), vm);
     }
 }

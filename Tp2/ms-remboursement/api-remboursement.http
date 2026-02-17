@@ -1,0 +1,103 @@
+### Variables
+@baseUrl = http://localhost:8083
+@ordonnanceUrl = http://localhost:8082
+@patientUrl = http://localhost:8081
+
+### ============================================
+### MS-REMBOURSEMENT - REST API Tests
+### ============================================
+
+### 1. Get all remboursements
+GET {{baseUrl}}/remboursements
+Accept: application/json
+
+###
+
+### 2. Get remboursement by ID
+GET {{baseUrl}}/remboursements/1
+Accept: application/json
+
+###
+
+### 3. Get all patients assurés
+GET {{baseUrl}}/patientAssures
+Accept: application/json
+
+###
+
+### 4. Get patient assuré by ID
+GET {{baseUrl}}/patientAssures/1
+Accept: application/json
+
+###
+
+### ============================================
+### Q3 - ENDPOINT IMPORTANT (Used by other services)
+### ============================================
+
+### 5. Q3 - Get remboursement by ordonnance ID (Called by MS-Ordonnance)
+GET {{baseUrl}}/remboursements/ordonnance/1
+Accept: application/json
+
+###
+
+### 6. Q3 - Get remboursement for ordonnance 2
+GET {{baseUrl}}/remboursements/ordonnance/2
+Accept: application/json
+
+###
+
+### 7. Test non-existing ordonnance (should return null/404)
+GET {{baseUrl}}/remboursements/ordonnance/999
+Accept: application/json
+
+###
+
+### ============================================
+### CREATE Operations
+### ============================================
+
+### 8. Create new patient assuré
+POST {{baseUrl}}/patientAssures
+Content-Type: application/json
+
+{
+  "numeroSecuriteSocial": "1234567890999",
+  "nom": "Charlie",
+  "patientId": 3
+}
+
+###
+
+### 9. Create new remboursement
+POST {{baseUrl}}/remboursements
+Content-Type: application/json
+
+{
+  "date": "2024-03-20",
+  "montant": 50.00,
+  "ordonnanceId": 3,
+  "patientAssure": "http://localhost:8083/patientAssures/1"
+}
+
+###
+
+### ============================================
+### Integration Tests (Cross-Service)
+### ============================================
+
+### 10. Verify ordonnance 1 exists in MS-Ordonnance
+GET {{ordonnanceUrl}}/ordonnances/1
+Accept: application/json
+
+###
+
+### 11. Get remboursement for that ordonnance
+GET {{baseUrl}}/remboursements/ordonnance/1
+Accept: application/json
+
+###
+
+### 12. Full flow test - Ordonnance with remboursement
+GET {{ordonnanceUrl}}/ordonnances/1/with-remboursement
+Accept: application/json

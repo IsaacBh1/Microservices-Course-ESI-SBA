@@ -1,0 +1,102 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.example:ms-patient >-----------------------
+[INFO] Building ms-patient 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.2:run (default-cli) > test-compile @ ms-patient >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ms-patient ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ ms-patient ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ms-patient ---
+[INFO] skip non existing resourceDirectory /home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-patient/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ ms-patient ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:4.0.2:run (default-cli) < test-compile @ ms-patient <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.2:run (default-cli) @ ms-patient ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.2)
+
+2026-02-17T00:39:30.603+01:00  INFO 131764 --- [ms-patient] [           main] c.e.ms_patient.MsPatientApplication      : Starting MsPatientApplication using Java 17.0.16 with PID 131764 (/home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-patient/target/classes started by isaac in /home/isaac/ESI/MicroS/Microservices-Course-ESI-SAB/Tp2/ms-patient)
+2026-02-17T00:39:30.611+01:00  INFO 131764 --- [ms-patient] [           main] c.e.ms_patient.MsPatientApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-02-17T00:39:32.252+01:00  INFO 131764 --- [ms-patient] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-17T00:39:32.482+01:00  INFO 131764 --- [ms-patient] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 215 ms. Found 2 JPA repository interfaces.
+2026-02-17T00:39:32.785+01:00  INFO 131764 --- [ms-patient] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2af600cc-a443-3636-ac17-a099fe6c5abf
+2026-02-17T00:39:33.496+01:00  INFO 131764 --- [ms-patient] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-17T00:39:33.523+01:00  INFO 131764 --- [ms-patient] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-17T00:39:33.523+01:00  INFO 131764 --- [ms-patient] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-17T00:39:33.623+01:00  INFO 131764 --- [ms-patient] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2911 ms
+2026-02-17T00:39:33.923+01:00  INFO 131764 --- [ms-patient] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-17T00:39:34.010+01:00  INFO 131764 --- [ms-patient] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-17T00:39:34.843+01:00  INFO 131764 --- [ms-patient] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-17T00:39:34.894+01:00  INFO 131764 --- [ms-patient] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-17T00:39:35.292+01:00  INFO 131764 --- [ms-patient] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:patientdb user=SA
+2026-02-17T00:39:35.296+01:00  INFO 131764 --- [ms-patient] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-17T00:39:35.350+01:00  WARN 131764 --- [ms-patient] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-17T00:39:35.422+01:00  INFO 131764 --- [ms-patient] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:patientdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: PATIENTDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-17T00:39:37.252+01:00  INFO 131764 --- [ms-patient] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: drop table if exists antecedent_medical cascade 
+Hibernate: drop table if exists patient cascade 
+Hibernate: create table antecedent_medical (date_diagnostic date, id bigint generated by default as identity, patient_id bigint, maladie varchar(255), primary key (id))
+Hibernate: create table patient (plafond_remboursement float(53), id bigint generated by default as identity, nom varchar(255), numero_securite_social varchar(255), primary key (id))
+Hibernate: alter table if exists antecedent_medical add constraint FKcd8p3xmv7ohm4xum3x72kwcrc foreign key (patient_id) references patient
+2026-02-17T00:39:37.386+01:00  INFO 131764 --- [ms-patient] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-17T00:39:37.542+01:00  INFO 131764 --- [ms-patient] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-17T00:39:38.152+01:00  WARN 131764 --- [ms-patient] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-17T00:39:39.437+01:00  INFO 131764 --- [ms-patient] [           main] efaultSchemaResourceGraphQlSourceBuilder : Loaded 1 resource(s) in the GraphQL schema.
+2026-02-17T00:39:39.863+01:00  INFO 131764 --- [ms-patient] [           main] o.s.b.g.a.GraphQlAutoConfiguration       : GraphQL schema inspection:
+	Unmapped fields: {}
+	Unmapped registrations: {}
+	Unmapped arguments: {}
+	Field nullness errors: {}
+	Argument nullness errors: {}
+	Skipped types: []
+2026-02-17T00:39:40.009+01:00  INFO 131764 --- [ms-patient] [           main] s.b.g.a.s.GraphQlWebMvcAutoConfiguration : GraphQL endpoint HTTP POST /graphql
+2026-02-17T00:39:42.030+01:00  INFO 131764 --- [ms-patient] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-17T00:39:42.078+01:00  INFO 131764 --- [ms-patient] [           main] c.e.ms_patient.MsPatientApplication      : Started MsPatientApplication in 12.111 seconds (process running for 12.713)
+Hibernate: insert into patient (nom,numero_securite_social,plafond_remboursement,id) values (?,?,?,default)
+Hibernate: insert into patient (nom,numero_securite_social,plafond_remboursement,id) values (?,?,?,default)
+Hibernate: insert into antecedent_medical (date_diagnostic,maladie,patient_id,id) values (?,?,?,default)
+Hibernate: insert into antecedent_medical (date_diagnostic,maladie,patient_id,id) values (?,?,?,default)
+Hibernate: insert into antecedent_medical (date_diagnostic,maladie,patient_id,id) values (?,?,?,default)
+2026-02-17T00:41:12.305+01:00  INFO 131764 --- [ms-patient] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-17T00:41:12.305+01:00  INFO 131764 --- [ms-patient] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-17T00:41:12.309+01:00  INFO 131764 --- [ms-patient] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+Hibernate: select p1_0.id,p1_0.nom,p1_0.numero_securite_social,p1_0.plafond_remboursement from patient p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.nom,p1_0.numero_securite_social,p1_0.plafond_remboursement from patient p1_0 where p1_0.id=?
+2026-02-17T00:43:09.299+01:00  INFO 131764 --- [ms-patient] [ionShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-17T00:43:09.305+01:00  INFO 131764 --- [ms-patient] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-17T00:43:09.328+01:00  INFO 131764 --- [ms-patient] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+Hibernate: drop table if exists antecedent_medical cascade 
+Hibernate: drop table if exists patient cascade 
+2026-02-17T00:43:09.334+01:00  INFO 131764 --- [ms-patient] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-17T00:43:09.337+01:00  INFO 131764 --- [ms-patient] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

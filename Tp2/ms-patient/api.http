@@ -1,0 +1,114 @@
+### Variables
+@baseUrl = http://localhost:8080
+@graphqlUrl = {{baseUrl}}/graphql
+
+### ============================================
+### MS-PATIENT - GraphQL API Tests
+### ============================================
+
+### 1. Get all patients
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "{ patients { id nom numeroSecuriteSocial plafondRemboursement } }"
+}
+
+###
+
+### 2. Get patient by ID
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "{ patient(id: 1) { id nom numeroSecuriteSocial plafondRemboursement } }"
+}
+
+###
+
+### 3. Get patient with ordonnances (Q3 - Complex Query)
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "{ patientWithOrdonnances(id: 1) { id nom numeroSecuriteSocial plafondRemboursement ordonnances { idOrdonnance medicaments { nom cout } remboursement { montant date } } } }"
+}
+
+###
+
+### 4. Get patient with ordonnances (formatted query)
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "query GetPatientWithOrdonnances($id: ID!) { patientWithOrdonnances(id: $id) { id nom numeroSecuriteSocial plafondRemboursement ordonnances { idOrdonnance medicaments { nom cout } remboursement { montant date } } } }",
+  "variables": {
+    "id": "1"
+  }
+}
+
+###
+
+### 5. Get patient by ID = 2
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "{ patient(id: 2) { id nom numeroSecuriteSocial plafondRemboursement } }"
+}
+
+###
+
+### 6. Get patient 2 with ordonnances
+POST {{graphqlUrl}}
+Content-Type: application/json
+
+{
+  "query": "{ patientWithOrdonnances(id: 2) { id nom numeroSecuriteSocial ordonnances { idOrdonnance medicaments { nom cout } remboursement { montant date } } } }"
+}
+
+###
+
+### ============================================
+### MS-PATIENT - REST Endpoints (Spring Data REST)
+### ============================================
+
+### Get all patients (REST)
+GET {{baseUrl}}/patients
+Accept: application/json
+
+###
+
+### Get patient by ID (REST)
+GET {{baseUrl}}/patients/1
+Accept: application/json
+
+###
+
+### Get all antecedents
+GET {{baseUrl}}/antecedentMedicals
+Accept: application/json
+
+###
+
+### Create new patient (REST)
+POST {{baseUrl}}/patients
+Content-Type: application/json
+
+{
+  "nom": "Charlie",
+  "numeroSecuriteSocial": "1234567890456",
+  "plafondRemboursement": 8000.0
+}
+
+###
+
+### Create antecedent for patient 1
+POST {{baseUrl}}/antecedentMedicals
+Content-Type: application/json
+
+{
+  "maladie": "Allergie au pollen",
+  "dateDiagnostic": "2023-04-15",
+  "patient": "http://localhost:8081/patients/1"
+}

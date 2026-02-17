@@ -1,0 +1,95 @@
+### Variables
+@baseUrl = http://localhost:8082
+@patientUrl = http://localhost:8080
+@remboursementUrl = http://localhost:8083
+
+### ============================================
+### MS-ORDONNANCE - REST API Tests
+### ============================================
+
+### 1. Get all ordonnances
+GET {{baseUrl}}/ordonnances
+Accept: application/json
+
+###
+
+### 2. Get ordonnance by ID
+GET {{baseUrl}}/ordonnances/1
+Accept: application/json
+
+###
+
+### 3. Get all medicaments
+GET {{baseUrl}}/medicaments
+Accept: application/json
+
+###
+
+### 4. Get ordonnances for patient 1
+GET {{baseUrl}}/ordonnances/patient/1
+Accept: application/json
+
+###
+
+### 5. Get ordonnances for patient 2
+GET {{baseUrl}}/ordonnances/patient/2
+Accept: application/json
+
+###
+
+### ============================================
+### Q3 - INVOCATIONS SYNCHRONES (Tests Importants!)
+### ============================================
+
+### 6. Q3 - Get ordonnance WITH patient name (Feign call to MS-Patient)
+GET {{baseUrl}}/ordonnances/1/with-patient
+Accept: application/json
+
+###
+
+### 7. Q3 - Get ordonnance WITH remboursement and NSS (Feign calls)
+GET {{baseUrl}}/ordonnances/1/with-remboursement
+Accept: application/json
+
+###
+
+### 8. Test with ordonnance 2
+GET {{baseUrl}}/ordonnances/1/with-patient
+Accept: application/json
+
+###
+
+### 9. Test with ordonnance 2 + remboursement
+GET {{baseUrl}}/ordonnances/2/with-remboursement
+Accept: application/json
+
+###
+
+### ============================================
+### CREATE Operations
+### ============================================
+
+### 10. Create new ordonnance
+POST {{baseUrl}}/ordonnances
+Content-Type: application/json
+
+{
+  "date": "2024-03-15",
+  "patientId": 1
+}
+
+###
+
+### 11. Create new medicament for ordonnance 1
+POST {{baseUrl}}/medicaments
+Content-Type: application/json
+
+{
+  "nomMedicament": "Paracétamol 500mg",
+  "duree": 5,
+  "dosage": "2 comprimés 3x/jour",
+  "cout": 10.00,
+  "ordonnance": "http://localhost:8082/ordonnances/1"
+}
+
+

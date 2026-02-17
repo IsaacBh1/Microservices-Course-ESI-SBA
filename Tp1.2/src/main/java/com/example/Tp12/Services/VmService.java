@@ -1,10 +1,10 @@
-// src/main/java/com/example/cloudplatform/service/VmService.java
 package com.example.Tp12.Services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import com.example.Tp12.DTOs.CreateVmRequest;
+import com.example.Tp12.DTOs.VirtualMachineDTO;
 import com.example.Tp12.Entities.Server;
 import com.example.Tp12.Entities.User;
 import com.example.Tp12.Entities.VirtualMachine;
@@ -44,7 +44,32 @@ public class VmService {
         
         return vmRepository.save(vm);
     }
-    
+
+    public VirtualMachine updateVm(long id , VirtualMachineDTO machine ) {
+          User User = UserRepository.findById(machine.getUtilisateurId())
+            .orElseThrow(() -> new RuntimeException("User not found"));
+        
+        Server ServerPrimary = ServerRepository.findById(machine.getServerPrimaryId())
+            .orElseThrow(() -> new RuntimeException("primary Server  not found"));
+
+        Server ServerBackup = ServerRepository.findById(machine.getServerBackupId())
+            .orElseThrow(() -> new RuntimeException("backup Server  not found"));
+
+        VirtualMachine vm = vmRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("VM not found"));
+
+        vm.setConfiguration(machine.getConfiguration());
+        vm.setUser(User);
+        vm.setServerPrimary(ServerPrimary);
+        vm.setServerBackup(ServerBackup);
+
+        return vmRepository.save(vm);
+    }
+
+    public List<VirtualMachine> getAllVms() {
+        return vmRepository.findAll();
+    }
+
     public void deleteVmFromServer(Long idServer, Long idVm) {
         VirtualMachine vm = vmRepository.findById(idVm)
             .orElseThrow(() -> new RuntimeException("VM not founde"));

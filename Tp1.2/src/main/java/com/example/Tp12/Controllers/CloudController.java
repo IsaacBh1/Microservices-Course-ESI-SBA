@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.Tp12.Entities.VirtualMachine;
 import com.example.Tp12.DTOs.CreateVmRequest;
 import com.example.Tp12.DTOs.UserDTO;
+import com.example.Tp12.DTOs.VirtualMachineDTO;
 import com.example.Tp12.Entities.User;
 import com.example.Tp12.Services.UserService;
 import com.example.Tp12.Services.VmService;
@@ -18,6 +19,12 @@ public class CloudController {
 
     private final VmService vmService;
     private final UserService userService;
+
+
+    @GetMapping("/vms" )
+    public ResponseEntity<List<VirtualMachine>> getAllVms() {
+        return ResponseEntity.ok(vmService.getAllVms());
+    }
 
     @GetMapping("/server/{idServer}/vms")
     public ResponseEntity<List<VirtualMachine>> getVmsByServer(@PathVariable Long idServer) {
@@ -51,4 +58,12 @@ public class CloudController {
         vmService.deleteVmFromServer(idServer, idVm);
         return ResponseEntity.noContent().build();
     }
+
+    @PatchMapping("/vm/{id}")
+    public ResponseEntity<VirtualMachine> patchVm(
+            @PathVariable Long id,
+            @RequestBody VirtualMachineDTO dto) {
+        return ResponseEntity.ok(vmService.updateVm(id, dto));
+    }
+
 }
