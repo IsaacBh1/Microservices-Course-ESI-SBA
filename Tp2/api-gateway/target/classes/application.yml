@@ -1,0 +1,65 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: ms-patient
+          uri: lb://ms-patient
+          predicates:
+            - Path=/patient/**
+          filters:
+            - StripPrefix=1
+
+        - id: ms-ordonnance
+          uri: lb://ms-ordonnance
+          predicates:
+            - Path=/ordonnance/**
+          filters:
+            - StripPrefix=1
+
+        - id: ms-remboursement
+          uri: lb://ms-remboursement
+          predicates:
+            - Path=/remboursement/**
+          filters:
+            - StripPrefix=1
+
+        - id: ms-patient-graphql
+          uri: lb://ms-patient
+          predicates:
+            - Path=/patient/graphql
+          filters:
+            - SetPath=/graphql
+
+        - id: ms-ordonnance-graphql
+          uri: lb://ms-ordonnance
+          predicates:
+            - Path=/ordonnance/graphql
+          filters:
+            - SetPath=/graphql
+
+        - id: ms-remboursement-graphql
+          uri: lb://ms-remboursement
+          predicates:
+            - Path=/remboursement/graphql
+          filters:
+            - SetPath=/graphql
+
+server:
+  port: 8085
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG

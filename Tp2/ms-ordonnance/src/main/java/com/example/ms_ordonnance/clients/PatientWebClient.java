@@ -1,7 +1,6 @@
 package com.example.ms_ordonnance.clients;
 
 import com.example.ms_ordonnance.DTOs.PatientResponse;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -10,9 +9,9 @@ public class PatientWebClient {
 
     private final WebClient webClient;
 
-    public PatientWebClient(@Value("${ms.patient.url:http://localhost:8080}") String baseUrl) {
-        this.webClient = WebClient.builder()
-                .baseUrl(baseUrl)
+    public PatientWebClient(WebClient.Builder webClientBuilder) {
+        this.webClient = webClientBuilder
+                .baseUrl("http://ms-patient")   // service name registered in Eureka
                 .build();
     }
 
@@ -21,6 +20,6 @@ public class PatientWebClient {
                 .uri("/api/patients/{id}", id)
                 .retrieve()
                 .bodyToMono(PatientResponse.class)
-                .block(); 
+                .block();
     }
 }

@@ -50,7 +50,7 @@ Content-Type: application/json
 ###
 
 ### 5. Get patient by ID = 2
-POST {{graphqlUrl}}
+POST {{graphqlUrl}} 
 Content-Type: application/json
 
 {

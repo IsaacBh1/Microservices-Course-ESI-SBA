@@ -1,18 +1,16 @@
 package com.example.ms_patient.Clients;
-import java.util.List;
 
+import java.util.List;
 import org.springframework.graphql.client.HttpGraphQlClient;
 import org.springframework.stereotype.Service;
-
 import com.example.ms_patient.DTOs.OrdonnanceDTO;
-
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class OrdonnanceGraphQLClient {
 
-    private final HttpGraphQlClient ordonnanceGraphQlClient;
+    private final HttpGraphQlClient ordonnanceGraphQlClient;   
 
     private static final String GET_ORDONNANCES_BY_PATIENT_ID = """
             query GetOrdonnancesByPatientId($patientId: ID!) {

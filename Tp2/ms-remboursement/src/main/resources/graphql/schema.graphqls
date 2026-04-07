@@ -1,0 +1,14 @@
+type Query {
+    remboursementWithOrdonnance(id: ID!): RemboursementDetail
+}
+
+type RemboursementDetail {
+    id: ID!
+    dateRemboursement: String!
+    montant: Float!
+    ordonnanceId: ID!
+    dateOrdonnance: String!
+    nombreMedicaments: Int!
+    numeroSecuriteSocial: String
+    patientNom: String
+}

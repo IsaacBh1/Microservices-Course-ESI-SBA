@@ -11,8 +11,11 @@ import com.example.ms_ordonnance.entities.Medicament;
 import com.example.ms_ordonnance.entities.Ordonnance;
 import com.example.ms_ordonnance.repositories.MedicamentRepository;
 import com.example.ms_ordonnance.repositories.OrdonnanceRepository;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
+@EnableDiscoveryClient
+
 public class MsOrdonnanceApplication implements CommandLineRunner {
 
 	final OrdonnanceRepository ordonnanceRepository;

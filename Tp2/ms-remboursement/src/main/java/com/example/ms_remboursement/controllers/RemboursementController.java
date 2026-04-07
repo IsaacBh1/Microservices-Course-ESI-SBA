@@ -1,9 +1,12 @@
 package com.example.ms_remboursement.controllers;
 
+import com.example.ms_remboursement.Clients.PatientClient;
 import com.example.ms_remboursement.DTOs.RemboursementDTO;
 import com.example.ms_remboursement.entities.Remboursement;
 import com.example.ms_remboursement.repositories.RemboursementRepository;
 import lombok.RequiredArgsConstructor;
+import reactor.core.publisher.Mono;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +17,8 @@ import java.util.List;
 public class RemboursementController {
     
     private final RemboursementRepository remboursementRepository;
-    
+    private final PatientClient patientClient;
+
     @GetMapping
     public List<Remboursement> getAllRemboursements() {
         return remboursementRepository.findAll();
@@ -41,5 +45,24 @@ public class RemboursementController {
         }
         
         return dto;
+    }
+    @GetMapping("/{id}/patient-name")
+    public Mono<String> getPatientNameForRemboursement(@PathVariable Long id) {
+        Remboursement remb = remboursementRepository.findById(id).orElse(null);
+        if (remb == null || remb.getPatientAssure() == null) {
+            return Mono.just("Inconnu");
+        }
+        Long patientId = remb.getPatientAssure().getPatientId(); 
+        return patientClient.getPatientById(patientId)
+                .map(patient -> patient.getNom() + " " + patient.getPrenom())
+                .defaultIfEmpty("Patient non trouvé");
+
+    
+    }
+    @GetMapping("/{id}/local-patient-name")
+    public String getLocalPatientName(@PathVariable Long id) {
+    return remboursementRepository.findById(id)
+            .map(r -> r.getPatientAssure() != null ? r.getPatientAssure().getNom() : "Inconnu")
+            .orElse("Remboursement introuvable");
     }
 }

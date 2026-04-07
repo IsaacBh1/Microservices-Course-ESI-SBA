@@ -66,10 +66,10 @@ public class OrdonnanceController {
         dto.setDate(ordonnance.getDate().toString());
         
         try {
-            var patient = patientWebClient.getPatient(ordonnance.getPatientId());  // ⬅️ Utilisez WebClient
+            var patient = patientWebClient.getPatient(ordonnance.getPatientId());  
             dto.setPatientNom(patient.getNom());
         } catch (Exception e) {
-            dto.setPatientNom("Patient non trouvé");
+            dto.setPatientNom("patient is not existing");
             e.printStackTrace();
         }
         
@@ -95,7 +95,6 @@ public class OrdonnanceController {
         dto.setId(ordonnance.getId());
         dto.setDate(ordonnance.getDate().toString());
         
-        // Changez patientClient par patientWebClient
         try {
             var patient = patientWebClient.getPatient(ordonnance.getPatientId());
             dto.setNumeroSecuriteSocial(patient.getNumeroSecuriteSocial());
@@ -104,7 +103,6 @@ public class OrdonnanceController {
             System.err.println("Erreur Patient: " + e.getMessage());
         }
         
-        // Changez remboursementClient par remboursementWebClient
         try {
             var remboursement = remboursementWebClient.getRemboursementByOrdonnance(id);
             dto.setMontantRemboursement(remboursement.getMontant());

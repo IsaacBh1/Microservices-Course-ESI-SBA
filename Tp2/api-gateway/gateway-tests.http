@@ -1,0 +1,62 @@
+
+@gateway = http://localhost:8085
+
+### 1. Get all patients (via gateway)
+GET {{gateway}}/patient/patients
+
+### 2. Get patient by ID
+GET {{gateway}}/patient/patients/1
+
+### 3. Get patient with ordonnances (calls ms-ordonnance internally)
+GET {{gateway}}/patient/patients/1/with-ordonnances
+
+### 4. Get patient with remboursements (calls ms-remboursement internally)
+GET {{gateway}}/patient/patients/1/with-remboursements
+
+### 5. GraphQL on ms-patient: get patient with ordonnances
+POST {{gateway}}/patient/graphql
+Content-Type: application/json
+
+{
+  "query": "query { patientWithOrdonnances(id: 1) { id nom ordonnances { id date } } }"
+}
+
+
+### 1. Get all ordonnances
+GET {{gateway}}/ordonnance/ordonnances
+
+### 2. Get ordonnance by ID
+GET {{gateway}}/ordonnance/ordonnances/1
+
+### 3. GraphQL on ms-ordonnance: get ordonnance with medicaments
+POST {{gateway}}/ordonnance/graphql
+Content-Type: application/json
+
+{
+  "query": "query { ordonnanceWithMedicaments(id: 1) { id date medicaments { nom dosage } } }"
+}
+
+
+### 1. Get all remboursements
+GET {{gateway}}/remboursement/remboursements
+
+### 2. Get remboursement by ID
+GET {{gateway}}/remboursement/remboursements/1
+
+### 3. Get remboursement by ordonnance ID
+GET {{gateway}}/remboursement/remboursements/ordonnance/1
+
+### 4. Get patient name for remboursement (new REST endpoint)
+GET {{gateway}}/remboursement/remboursements/1/patient-name
+
+### 5. GraphQL on ms-remboursement: get remboursement with ordonnance details
+POST {{gateway}}/remboursement/graphql
+Content-Type: application/json
+
+{
+  "query": "query { remboursementWithOrdonnance(id: 1) { id dateRemboursement montant dateOrdonnance nombreMedicaments patientNom } }"
+}
+
+
+### Repeated call to see which instance handles it
+GET {{gateway}}/patient/patients/1

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import com.example.ms_remboursement.entities.PatientAssure;
 import com.example.ms_remboursement.entities.Remboursement;
@@ -15,11 +15,13 @@ import com.example.ms_remboursement.repositories.RemboursementRepository;
 import lombok.RequiredArgsConstructor;
 @SpringBootApplication
 @RequiredArgsConstructor
+@EnableDiscoveryClient
+
 public class MsRemboursementApplication implements CommandLineRunner {
 
 	final RemboursementRepository remboursementRepository;
 	final PatientAssureRepository patientAssureRepository;
-	final RepositoryRestConfiguration repositoryRestConfiguration;
+	// final RepositoryRestConfiguration repositoryRestConfiguration;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MsRemboursementApplication.class, args);
@@ -37,6 +39,6 @@ public class MsRemboursementApplication implements CommandLineRunner {
 		remboursementRepository.save(r1);
 		remboursementRepository.save(r2);
 
-		repositoryRestConfiguration.exposeIdsFor(Remboursement.class, PatientAssure.class);
+		// repositoryRestConfiguration.exposeIdsFor(Remboursement.class, PatientAssure.class);
 	}
 }

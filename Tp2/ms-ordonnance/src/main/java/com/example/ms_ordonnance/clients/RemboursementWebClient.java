@@ -1,7 +1,6 @@
 package com.example.ms_ordonnance.clients;
 
 import com.example.ms_ordonnance.DTOs.RemboursementResponse;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -10,9 +9,9 @@ public class RemboursementWebClient {
 
     private final WebClient webClient;
 
-    public RemboursementWebClient(@Value("${ms.remboursement.url:http://localhost:8083}") String baseUrl) {
-        this.webClient = WebClient.builder()
-                .baseUrl(baseUrl)
+    public RemboursementWebClient(WebClient.Builder webClientBuilder) {
+        this.webClient = webClientBuilder
+                .baseUrl("http://ms-remboursement")
                 .build();
     }
 

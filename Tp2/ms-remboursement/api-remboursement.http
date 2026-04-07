@@ -101,3 +101,39 @@ Accept: application/json
 ### 12. Full flow test - Ordonnance with remboursement
 GET {{ordonnanceUrl}}/ordonnances/1/with-remboursement
 Accept: application/json
+
+
+
+### Variables
+@remboursementBaseUrl = http://localhost:8083
+
+### Récupérer tous les remboursements
+GET {{remboursementBaseUrl}}/remboursements
+
+### Récupérer un remboursement par ID
+GET {{remboursementBaseUrl}}/remboursements/1
+
+### Récupérer un remboursement par ordonnanceId
+GET {{remboursementBaseUrl}}/remboursements/ordonnance/1
+
+### NOUVEAU : Récupérer le nom du patient associé à un remboursement (via REST)
+GET {{remboursementBaseUrl}}/remboursements/1/patient-name
+
+### NOUVEAU : GraphQL - remboursement avec date d'ordonnance et nombre de médicaments
+POST {{remboursementBaseUrl}}/graphql
+Content-Type: application/json
+
+{
+  "query": "query { remboursementWithOrdonnance(id: 1) { id dateRemboursement montant dateOrdonnance nombreMedicaments patientNom } }"
+}
+
+### GraphQL avec variables (si vous préférez)
+POST {{remboursementBaseUrl}}/graphql
+Content-Type: application/json
+
+{
+  "query": "query GetRemboursementDetail($id: ID!) { remboursementWithOrdonnance(id: $id) { id dateRemboursement montant dateOrdonnance nombreMedicaments patientNom } }",
+  "variables": {
+    "id": 1
+  }
+}

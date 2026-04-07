@@ -3,10 +3,12 @@ package com.example.ms_patient;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
@@ -16,7 +18,9 @@ import com.example.ms_patient.Repositories.AntecedentMedicalRepository;
 import com.example.ms_patient.Repositories.PatientRepository;
 
 @SpringBootApplication
-@EnableFeignClients
+@EnableDiscoveryClient
+@EnableFeignClients(basePackages = "com.example.ms_patient.Clients")
+
 public class MsPatientApplication implements CommandLineRunner {
 
 	final PatientRepository patientRepository;
